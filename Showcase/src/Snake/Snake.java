@@ -142,7 +142,11 @@ public class Snake {
 			}
 			int x = (int) (bodyPart.x * game.T_SIZE);
 			int y = (int) (bodyPart.y * game.T_SIZE);
-			game.fill(255);
+			if(collided) {
+				game.fill(0, 0, 255);
+			} else {
+				game.fill(255);
+			}
 			game.rect(x, y, game.T_SIZE, game.T_SIZE);
 			// do the draw stuff
 			
