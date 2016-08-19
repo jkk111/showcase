@@ -29,9 +29,13 @@ public class Game extends PApplet {
 			snek.move();
 		}
 		background(0);
+		textAlign(LEFT, BASELINE);
+		textSize(16);
 		text("Score: " + score, T_SIZE, T_SIZE);
 		if(ended) {
-		
+			textSize(32);
+			textAlign(CENTER, CENTER);
+			text("Press R to restart", width / 2, height / 2);
 		}
 		snek.draw();
 		food.draw();
