@@ -130,11 +130,13 @@ public class Snake {
 			wall = true;
 		}
 		// Check collisions
+		int collidedIndex = -1;
 		for(int i = history.size() - 1; i >= 0; i--) {
 			PVector bodyPart = history.get(i);
 			if(i < history.size() - 4 && !collided) {
 				if(head.equals(bodyPart)) {
 					collided = true;
+					collidedIndex = i;
 				}
 			}
 			if(collided) {
@@ -142,7 +144,7 @@ public class Snake {
 			}
 			int x = (int) (bodyPart.x * game.T_SIZE);
 			int y = (int) (bodyPart.y * game.T_SIZE);
-			if(collided) {
+			if(collidedIndex == i) {
 				game.fill(0, 0, 255);
 			} else {
 				game.fill(255);
